@@ -38,5 +38,9 @@
   "directory": {
     "dataSource": "db",
     "public": true
+  },
+  "template": {
+    "dataSource": "db",
+    "public": true
   }
 }
