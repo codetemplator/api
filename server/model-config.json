@@ -42,5 +42,9 @@
   "template": {
     "dataSource": "db",
     "public": true
+  },
+  "file": {
+    "dataSource": "db",
+    "public": true
   }
 }
