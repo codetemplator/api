@@ -1,0 +1,42 @@
+{
+  "name": "directory",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "id": true,
+      "type": "string",
+      "defaultFn": "uuid"
+    },
+    "createdAt": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "parentDir": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "directories": {
+      "type": "hasMany",
+      "model": "directory"
+    },
+    "directory": {
+      "type": "belongsTo",
+      "model": "directory",
+      "foreignKey": "parentDir"
+    }
+  },
+  "acls": [
+  ],
+  "methods": {}
+}
