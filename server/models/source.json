@@ -1,5 +1,5 @@
 {
-  "name": "file",
+  "name": "source",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -30,14 +30,12 @@
   },
   "validations": [],
   "relations": {
-    "directories": {
-      "directory": {
-        "type": "belongsTo",
-        "model": "directory"
-      }
-    },
-    "acls": [
-    ],
-    "methods": {}
-  }
+    "directory": {
+      "type": "belongsTo",
+      "model": "directory"
+    }
+  },
+  "acls": [
+  ],
+  "methods": {}
 }

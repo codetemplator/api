@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
@@ -35,6 +36,10 @@
     "dataSource": "db",
     "public": false
   },
+  "user": {
+    "dataSource": "db",
+    "public": true
+  },
   "directory": {
     "dataSource": "db",
     "public": true
@@ -43,7 +48,7 @@
     "dataSource": "db",
     "public": true
   },
-  "file": {
+  "source": {
     "dataSource": "db",
     "public": true
   }
