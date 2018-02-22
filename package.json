@@ -8,6 +8,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
+    "test": "exit 0",
     "posttest": "npm run lint",
     "docker": "docker build -t codetemplator/api .",
     "docker:tag": "docker tag codetemplator/api codetemplator/api",
