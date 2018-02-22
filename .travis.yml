@@ -10,13 +10,17 @@ install:
 - yarn lint
 - yarn docker
 deploy:
-  provider: cloudfoundry
-  api: https://api.run.pivotal.io
-  username: david.ahern26@gmail.com
-  password:
-    secure: fAWsiA412uzfmBeI4BrpZAPmouBoQxUkEOFFK0PCsvYthRCu73iECmEE6sSjr27V88wCi0WNVGwk4D0d6M3GkXBjkGjZoypatwrQUw6h0nGnH8DZHaLDGRe1WrLM2MckILrerQFcp5KNy0LjBihyl3fy22zPJ4gO7/f2tHMZxE94178mxIxMZlIOtAYO7bgbLyFhDAqpb0q2rZ5Uc9glBuU1dqklQHrZV0901mIsQYliSVpeEnYIX6nldebJAU54jlqsVcvdtJBo/haIMwcpO21Rmh3xH4zrQBpY5BkoCzI+qiQn+a0OCdIr/Lu8o88u1kmpCoBX05fv6WXIxVDcVyM11l63u3jQ/MXgzOqXsHZzyOoM2Ac1AboJm1bpqIQQJnCkNZoaIGB7LZzDs+MU+7vDhdJ/R71C+MYuWbF15Vub8ObCAJSyrJVJMO4G8cqvoQ4eHC+SHyir7Va6pOdspCoorZl2Ar8T8GIJIxUQ8j9MWZhDA4Uqryy5Pjeb70z2kNHZo05/5Qpo372WuLYTdU5jxzWJuMRzcBCMGv6Lw0ifB9LCSUFyadAe+eI9qOlc3EVvoChArKpW8S7fNpH2gLtSJ9NS49xq0t3kBDsoNdsnJs/86iWX34/Vu1HUpAQq0PQAeC7JKjJZUGxeCQx2K55izG9FtPWNnDMCm9ha+EQ=
-  organization: thor
-  space: prod
-  on:
-    repo: codetemplator/codetemplator-api
-    branch: master
+  - provider: cloudfoundry
+    api: https://api.run.pivotal.io
+    username: david.ahern26@gmail.com
+    password:
+      secure: fAWsiA412uzfmBeI4BrpZAPmouBoQxUkEOFFK0PCsvYthRCu73iECmEE6sSjr27V88wCi0WNVGwk4D0d6M3GkXBjkGjZoypatwrQUw6h0nGnH8DZHaLDGRe1WrLM2MckILrerQFcp5KNy0LjBihyl3fy22zPJ4gO7/f2tHMZxE94178mxIxMZlIOtAYO7bgbLyFhDAqpb0q2rZ5Uc9glBuU1dqklQHrZV0901mIsQYliSVpeEnYIX6nldebJAU54jlqsVcvdtJBo/haIMwcpO21Rmh3xH4zrQBpY5BkoCzI+qiQn+a0OCdIr/Lu8o88u1kmpCoBX05fv6WXIxVDcVyM11l63u3jQ/MXgzOqXsHZzyOoM2Ac1AboJm1bpqIQQJnCkNZoaIGB7LZzDs+MU+7vDhdJ/R71C+MYuWbF15Vub8ObCAJSyrJVJMO4G8cqvoQ4eHC+SHyir7Va6pOdspCoorZl2Ar8T8GIJIxUQ8j9MWZhDA4Uqryy5Pjeb70z2kNHZo05/5Qpo372WuLYTdU5jxzWJuMRzcBCMGv6Lw0ifB9LCSUFyadAe+eI9qOlc3EVvoChArKpW8S7fNpH2gLtSJ9NS49xq0t3kBDsoNdsnJs/86iWX34/Vu1HUpAQq0PQAeC7JKjJZUGxeCQx2K55izG9FtPWNnDMCm9ha+EQ=
+    organization: thor
+    space: prod
+    on:
+      repo: codetemplator/codetemplator-api
+      branch: master
+  - provider: script
+    script: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" && yarn docker:tag && yarn docker:push
+    on:
+      branch: master
