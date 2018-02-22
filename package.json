@@ -8,7 +8,10 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check"
+    "posttest": "npm run lint",
+    "docker": "docker build -t codetemplator/api .",
+    "docker:tag": "docker tag codetemplator/api codetemplator/api",
+    "docker:push": "docker push codetemplator/api"
   },
   "dependencies": {
     "compression": "^1.0.3",
